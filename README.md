@@ -26,7 +26,8 @@ version: "3"
 services:
   dfplex:
     image: sushiman42/dfplex:latest
-    netowrk: host
+    container_name: dfplex
+    network: host
     restart: always
     ports:
       - 8000:8000
