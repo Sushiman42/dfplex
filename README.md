@@ -20,6 +20,22 @@ git clone --recursive https://github.com/white-rabbit-dfplex/dfhack
 
 Then just follow the [build instructions for dfhack](https://dfhack.readthedocs.io/en/stable/docs/Compile.html). Please take care to ensure that you install into the correct version of Dwarf Fortress. You can check which version DFHack is compatible with by looking at the `CMakeLists.txt` file in the DFHack repo.
 
+### Docker Compose (Recommended) ###
+```
+version: "3"
+services:
+  dfplex:
+    image: sushiman42/dfplex:latest
+    netowrk: host
+    restart: always
+    ports:
+      - 8000:8000
+      - 5000:5000
+      - 1234:1234
+    volumes:
+      - /your/path/here:/df_linux/data/save
+```
+
 ### Launching DFPlex ###
 
 After installing DFPlex (along with DFHack), simply put the line `enable dfplex` in your `dfhack.init` file. Consider removing all other lines from that file, because dfplex is currently incompatible with many other plugins. Then simply connect to [http://localhost:8000/](http://localhost:8000/) in your web browser.
